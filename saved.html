@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh sách đã lưu | Nestbuddies</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <img src="img/logo.jpg" alt="Logo Nestbuddies" class="logo-img" loading="lazy">
+      <div>
+        <h1 class="site-title">Nestbuddies</h1>
+        <p class="site-slogan">Danh sách phòng trọ đã lưu</p>
+      </div>
+    </div>
+    <button class="theme-toggle" aria-label="Chuyển chế độ sáng/tối" onclick="toggleTheme()">
+      <i class="fas fa-moon"></i>
+    </button>
+    <a href="index.html" class="saved-tab">
+      <i class="fas fa-arrow-left"></i> Quay lại
+    </a>
+  </header>
+
+  <main>
+    <section class="container">
+      <div id="resultCount" class="result-count"></div>
+      <div class="post-container" id="savedPostsContainer">
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Nestbuddies. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="js/saved.js"></script>
+  <script>
+    // Dark mode
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+    
+    window.toggleTheme = function() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    };
+
+    window.closeModal = function() {
+      document.getElementById('modal').style.display = 'none';
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nestbuddies - Tìm Phòng Trọ</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo-section">
+      <img src="img/logo.jpg" alt="Logo Nestbuddies" class="logo-img" loading="lazy">
+      <div>
+        <h1 class="site-title">Nestbuddies</h1>
+        <p class="site-slogan">Tìm trọ dễ dàng – An tâm như ở nhà</p>
+      </div>
+    </div>
+    <button class="theme-toggle" aria-label="Chuyển chế độ sáng/tối" onclick="toggleTheme()">
+      <i class="fas fa-moon"></i>
+    </button>
+    <a href="saved.html" class="saved-tab">
+      <i class="fas fa-heart"></i> Danh sách đã lưu
+    </a>
+  </header>
+
+  <main>
+    <section class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Tìm theo khu vực/mô tả...">
+      <select id="districtSelect">
+        <option value="">-- Quận --</option>
+      </select>
+      <select id="priceSelect">
+        <option value="">-- Giá --</option>
+        <option value="low">Dưới 3 triệu</option>
+        <option value="mid">3-4 triệu</option>
+        <option value="high">Trên 4 triệu</option>
+      </select>
+      <select id="roomSelect">
+        <option value="">-- Số phòng --</option>
+        <option value="1-5">1-5 phòng</option>
+        <option value="6-10">6-10 phòng</option>
+      </select>
+      <select id="filterRating">
+        <option value="">-- Đánh giá --</option>
+        <option value="4">4 sao+</option>
+        <option value="3">3 sao+</option>
+      </select>
+      <select id="sortSelect">
+        <option value="">Sắp xếp theo</option>
+        <option value="price-asc">Giá tăng dần</option>
+        <option value="price-desc">Giá giảm dần</option>
+      </select>
+      <button id="resetFilters" class="btn-reset">
+        <i class="fas fa-times-circle"></i> Bỏ lọc
+      </button>
+    </section>
+
+    <div id="resultCount" class="result-count"></div>
+    
+    <div class="container">
+      <div class="post-container" id="postContainer">
+        <div id="loadingSpinner" class="loading-spinner"></div>
+      </div>
+      <nav class="pagination" id="pagination"></nav>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Nestbuddies. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+<script src="js/script.js"></script>
+</html>
